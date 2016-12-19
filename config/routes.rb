@@ -5,6 +5,7 @@ Spree::Core::Engine.routes.draw do
 
       resources :products
       resources :line_items
+      get '/orders/mine', to: 'orders#mine', as: 'my_orders'
       resources :orders
       resources :taxonomies
       resources :taxons
