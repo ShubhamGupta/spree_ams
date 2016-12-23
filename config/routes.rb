@@ -7,7 +7,9 @@ Spree::Core::Engine.routes.draw do
       resources :line_items
       get '/orders/mine', to: 'orders#mine', as: 'my_orders'
       get '/taxons/products', to: 'taxons#products', as: :taxon_products
-      resources :orders
+      resources :orders do
+        put :empty, on: :member
+      end
       resources :taxonomies
       resources :taxons
       resources :countries, :only => [:index, :show]
